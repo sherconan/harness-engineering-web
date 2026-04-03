@@ -1,26 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: #FAFAF8;
+  --color-bg-card: #FFFFFF;
+  --color-bg-card-light: #F5F0EB;
+  --color-accent: #910E0E;
+  --color-accent-blue: #910E0E;
+  --color-accent-dim: #6B0A0A;
+  --color-accent-green: #2D6A4F;
+  --color-accent-orange: #be8c4b;
+  --color-accent-red: #910E0E;
+  --color-accent-purple: #6B3FA0;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #555555;
+  --color-text-muted: #999999;
+  --color-border: #E0DAD2;
+  --font-sans: 'Outfit', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+/* Light theme card shadows */
+.bg-bg-card {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+::selection {
+  background: color-mix(in srgb, var(--color-accent) 30%, transparent);
+}
+
+/* Code block styling */
+.code-block {
+  background: #1A1A1A;
+  border: 1px solid #2A2A2A;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+}
+
+.code-block code {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: #E0E0E0;
+}
+
+.code-keyword { color: #FF7B72; }
+.code-string { color: #A5D6FF; }
+.code-comment { color: #8B949E; }
+.code-function { color: #D2A8FF; }
+.code-type { color: #79C0FF; }
+.code-const { color: #FFA657; }
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #910E0E, #be8c4b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effect */
+.glow-accent {
+  box-shadow: 0 0 40px -10px color-mix(in srgb, var(--color-accent) 15%, transparent);
+}
+
+/* Accent top border for cards */
+.accent-top-blue { border-top: 2px solid var(--color-accent); }
+.accent-top-green { border-top: 2px solid var(--color-accent-green); }
+.accent-top-orange { border-top: 2px solid var(--color-accent-orange); }
+.accent-top-purple { border-top: 2px solid var(--color-accent-purple); }
+.accent-top-red { border-top: 2px solid var(--color-accent-red); }
+
+.accent-left-blue { border-left: 3px solid var(--color-accent); }
+.accent-left-green { border-left: 3px solid var(--color-accent-green); }
+.accent-left-orange { border-left: 3px solid var(--color-accent-orange); }
+.accent-left-purple { border-left: 3px solid var(--color-accent-purple); }
+.accent-left-red { border-left: 3px solid var(--color-accent-red); }
